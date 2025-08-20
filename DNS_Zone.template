@@ -2,7 +2,7 @@ $TTL 86400              ; Default TTL (time to live) for all records (in seconds
 
 ; Start of Authority (SOA) record - declares the authoritative DNS server for the domain
 ; Format: domain, record type SOA, primary nameserver, responsible party email (replace @ with .)
-@   IN  SOA ns.<domain>. admin.<domain>. (
+@   IN  SOA <ns>.<domain>. admin.<domain>. (
         2025080801      ; Serial number: format YYYYMMDDXX - update this on every change!
         3600            ; Refresh interval: how often secondary servers check for updates (1 hour)
         1800            ; Retry interval: how often to retry if refresh fails (30 minutes)
@@ -11,13 +11,13 @@ $TTL 86400              ; Default TTL (time to live) for all records (in seconds
     )
 
 ; Name Server (NS) record - defines the authoritative nameserver(s) for the domain
-@   IN  NS  ns.<domain>.
+@   IN  NS  <ns>.<domain>.
 
 ; Address records (A) - map hostnames to IPv4 addresses
-ns          IN  A   <ns_ip_address>          ; The DNS server's IP address
-server1     IN  A   <server1_ip_address>     ; Example host #1
-server2     IN  A   <server2_ip_address>     ; Example host #2
-workstation IN  A   <workstation_ip_address> ; Example workstation
+<ns>          IN  A   <ns_ip_address>          ; The DNS server's IP address
+<server1>     IN  A   <server1_ip_address>     ; Example host #1
+<server2>     IN  A   <server2_ip_address>     ; Example host #2
+<workstation> IN  A   <workstation_ip_address> ; Example workstation
 
 ; CNAME record (optional) - alias one hostname to another
 ; www       IN  CNAME   server1               ; www.<domain> points to server1.<domain>
